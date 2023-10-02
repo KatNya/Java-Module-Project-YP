@@ -16,22 +16,28 @@ public class Main {
 
             System.out.println("Введите блюдо или Завершить для подсчета итога");
             food = scanner.next();
-            if(food.equalsIgnoreCase("ЗАВЕРШИТЬ")){
+            if (food.equalsIgnoreCase("ЗАВЕРШИТЬ")) {
                 break;
             }
             allFood = allFood + "\n " + food;
+
+
             System.out.println("Введите стоимость блюда");
-            money = scanner.nextDouble();
-            if (money > 0) {
-                allMoney = allMoney + money;
-            }
-            else {
-            System.out.println("Отрицательной цены за блюдо быть не может");
+
+            if (scanner.hasNextDouble()) {
+                money = scanner.nextDouble();
+                if (money < 0) {
+                    System.out.println("Отрицательной цены за блюдо быть не может, введите положительное значение!");
+                } else {
+                    allMoney = allMoney + money;
+                }
+            } else {
+                System.out.println("Вы ввели не число!");
+                break;
             }
         }
 
         System.out.println("Добавленные товары:" + allFood);
-
 
 
         String result = Calculator.cutResult(allMoney, guest);
@@ -39,12 +45,10 @@ public class Main {
         String rub = Calculator.rubles(allMoney, guest);
 
 
-
         System.out.println("Каждый гость должен заплатить " + result + " " + rub);
-        }
-
-
-
     }
+
+
+}
 
 
