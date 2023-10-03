@@ -12,6 +12,7 @@ public class Main {
         double money;
         double allMoney = 0.00;
 
+
         while (true) {
 
             System.out.println("Введите блюдо или Завершить для подсчета итога");
@@ -33,7 +34,7 @@ public class Main {
                 }
             } else {
                 System.out.println("Вы ввели не число!");
-                break;
+                return;
             }
         }
 
