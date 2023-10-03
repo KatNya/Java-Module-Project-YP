@@ -24,6 +24,7 @@ public class People {
 
         } else {
             System.out.println("Вы ввели не число!");
+            peopleCount();
         }
 
         return guestPeople;
